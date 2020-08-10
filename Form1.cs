@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
 
+// ColorSynth v1.2.0
 
 namespace ColorSynth
 {
@@ -39,6 +40,11 @@ namespace ColorSynth
         public class SynthFile
         {
             public List<SynthTracks> tracks;
+
+            public void Clear()
+            {
+                this.tracks.Clear();
+            }
         }
         public class SynthTracks
         {
@@ -48,11 +54,21 @@ namespace ColorSynth
             public int dispOrder;
         }
 
-        private string json;
-        SynthFile parsedFile;
+        private string json;        //opened file as a string
+        private SynthFile parsedFile;       //parsed file as an object
+        private int i = 0;    //dispOrder "not ordered" fix
 
+        //Read file as Json
         public void LoadJson(string s)
         {
+            //if already open, clear first
+            if (parsedFile != null)
+            {
+                parsedFile.Clear();
+                i = 0;
+                listView1.Clear();
+            }
+
             using (StreamReader r = new StreamReader(s))
             {
                 json = r.ReadToEnd();
@@ -60,35 +76,37 @@ namespace ColorSynth
 
                 foreach (SynthTracks track in parsedFile.tracks)
                 {
-                    int i = track.dispOrder;
                     track.dispColor_old = track.dispColor;
                     listView1.Items.Add(track.name);
                     listView1.Items[i].BackColor = System.Drawing.ColorTranslator.FromHtml(String.Concat("#" + parsedFile.tracks[i].dispColor));
+                    i++;
                 }
 
                 label1.Text = Path.GetFileName(s);
             }
         }
 
-
+        //Save file as Json
         public void SaveJson(string s)
         {
+            i = 0;      //dispOrder "not ordered" fix
 
-                foreach (SynthTracks track in parsedFile.tracks)
+            foreach (SynthTracks track in parsedFile.tracks)
                 {
-                    json = json.Replace("\"dispColor\": \"" + track.dispColor_old + "\", \"dispOrder\": " + track.dispOrder, "\"dispColor\": \"" + track.dispColor + "\", \"dispOrder\": " + track.dispOrder);
+                    json = json.Replace("\"dispColor\": \"" + track.dispColor_old + "\", \"dispOrder\": " + track.dispOrder, "\"dispColor\": \"" + track.dispColor + "\", \"dispOrder\": " + i);
+                    i++;
                 }
 
                 File.WriteAllText(s, json);
         }
 
+        //Compulsory main call
         public Form1()
         {
             InitializeComponent();
         }
 
-
-
+        //Open button action
         private void button1_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -98,12 +116,13 @@ namespace ColorSynth
         }
 
 
-
+        //windows pls why you don't let me delete this
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
         }
 
+        //Action when a track is chosen
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedIndices.Count > 0)
@@ -117,7 +136,8 @@ namespace ColorSynth
                 }
             }
         }
-
+        
+        //Save button action
         private void button2_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -126,6 +146,7 @@ namespace ColorSynth
             }
         }
 
+        //Online websites
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://osformula.com/");
