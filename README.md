@@ -2,7 +2,7 @@
 
 Standalone application that enables users to edit the colours of their SynthV singer tracks.
 
-ColorSynth done by OSformula (http://osformula.com/)
+ColorSynth done by OSformula (http://osformula.com/)<br>
 .svp files belong to Dreamtronics (https://dreamtonics.com/)
 
 ## LICENSES
