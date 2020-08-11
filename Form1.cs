@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
 
-// ColorSynth v1.2.0
+// ColorSynth v1.3.0
 
 namespace ColorSynth
 {
@@ -104,6 +104,8 @@ namespace ColorSynth
         public Form1()
         {
             InitializeComponent();
+            //Select English just loading it
+            comboBox1.SelectedIndex = 0;
         }
 
         //Open button action
@@ -156,6 +158,88 @@ namespace ColorSynth
         {
             System.Diagnostics.Process.Start("https://dreamtonics.com/");
         
+        }
+
+        //Languages
+
+
+        //Form1 Drag-and-Drop programming
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void Form1_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Link;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] dragdrop = e.Data.GetData(DataFormats.FileDrop) as string[];  
+            if (dragdrop != null && dragdrop.Any())
+            {
+                LoadJson(dragdrop.First());
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0: //ENG
+                    button1.Text = "Open .svp file...";
+                    label1.Text = "Tracks will be shown below";
+                    button2.Text = "Save .svp file...";
+                    label2.Text = "Utility done by";
+                    label3.Text = ".svp files belong to";
+                    break;
+                case 1: //JPN
+                    button1.Text = ".svpファイル開く...";
+                    label1.Text = "トラックはこのテキストの下に表示";
+                    button2.Text = ".svp名前を付けて保存...";
+                    label2.Text = "ツールプログラミング";
+                    label3.Text = ".svpファイルプログラミング";
+                    break;
+                case 2: //CHN
+                    button1.Text = "打开.svp文件...";
+                    label1.Text = "曲目将显示在此消息下方";
+                    button2.Text = "另存为.svp文件...";
+                    label2.Text = "工具编程";
+                    label3.Text = ".svp文件编程";
+                    break;
+                case 3: //ESP
+                    button1.Text = "Abrir archivo .svp...";
+                    label1.Text = "Las pistas se mostrarán debajo";
+                    button2.Text = "Guardar archivo .svp...";
+                    label2.Text = "Utilidad hecha por";
+                    label3.Text = ".svp desarrollados por";
+                    break;
+                case 4: //KOR
+                    button1.Text = ".svp 파일 열기...";
+                    label1.Text = "이 메시지 아래에 트랙이 표시됨";
+                    button2.Text = ".svp 다른 이름으로 저장...";
+                    label2.Text = "도구 프로그래밍";
+                    label3.Text = ".svp 개발";
+                    break;
+                case 5: //CAT
+                    button1.Text = "Obrir arxiu .svp...";
+                    label1.Text = "Les pistes es mostraran a sota";
+                    button2.Text = "Desar arxiu .svp...";
+                    label2.Text = "Utilitat feta per";
+                    label3.Text = ".svp desenvolupats per";
+                    break;
+                case 6: //PT
+                    button1.Text = "Abrir arquivo .svp ...";
+                    label1.Text = "As faixas serão exibidas abaixo";
+                    button2.Text = "Salvar arquivo .svp ...";
+                    label2.Text = "Utilitário feito por";
+                    label3.Text = ".svp desenvolvido por";
+                    break;
+            }
         }
     }
 }
