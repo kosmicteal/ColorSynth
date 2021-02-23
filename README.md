@@ -1,6 +1,8 @@
 # ColorSynth
+![](https://img.shields.io/badge/version-1.3.1b-blue) ![](https://img.shields.io/badge/file%20input-SynthV%20(.svp)-green)
+![alt text](https://github.com/OSformula/ColorSynth/blob/master/01_colorsynth.png)
 
-Standalone application that enables users to edit the colours of their SynthV singer tracks.
+**Video demonstration / 動画デモ**: https://www.youtube.com/watch?v=F_2vjPUGvs0
 
 ColorSynth done by OSformula (http://osformula.com/)<br>
 .svp files belong to Dreamtronics (https://dreamtonics.com/)
