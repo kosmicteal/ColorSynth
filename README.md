@@ -1,5 +1,5 @@
 # ColorSynth
-![](https://img.shields.io/badge/version-1.3.1b-blue) ![](https://img.shields.io/badge/file%20input-SynthV%20(.svp)-brightgreen)
+![](https://img.shields.io/badge/version-1.3.1b-blue) ![](https://img.shields.io/badge/intended%20for-SynthV%20(.svp)-brightgreen)
 ![alt text](https://github.com/OSformula/ColorSynth/blob/master/01_colorsynth.png)
 
 **Video demonstration / 動画デモ**: https://www.youtube.com/watch?v=F_2vjPUGvs0
