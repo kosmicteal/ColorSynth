@@ -1,11 +1,12 @@
+## NOTE
+*Now Synthesizer V Studio's 1.10.0b1 release includes a way to change the tracks colours directly from the interface itself with some premade swatches. The final version (1.10.0) also includes a color picker.*
+This repository will remain archived but the final build will still be downloadable. Thanks for your support!
+
+.svp files belong to Dreamtronics (https://dreamtonics.com/)
+
 # ColorSynth
 ![](https://img.shields.io/badge/version-1.3.1b-blue) ![](https://img.shields.io/badge/intended%20for-SynthV%20(.svp)-brightgreen) ![GitHub all releases](https://img.shields.io/github/downloads/KosmicTeal/ColorSynth/total)
 ![alt text](https://github.com/KosmicTeal/ColorSynth/blob/master/01_ColorSynth.png)
-
-## NOTE
-*Now Synthesizer V Studio's 1.10.0b1 release includes a way to change the tracks colours directly from the interface itself with some premade swatches.*
-
-.svp files belong to Dreamtronics (https://dreamtonics.com/)
 
 ## LICENSES
 Licensed under the Apache License, Version 2.0 (the "License");<br>
