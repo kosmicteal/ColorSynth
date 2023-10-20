@@ -2,6 +2,7 @@
 ![](https://img.shields.io/badge/archived%20on-20/10/2023-orange)
 <br>
 *Now Synthesizer V Studio's 1.10.0b1 release includes a way to change the tracks colours directly from the interface itself with some premade swatches. The final version (1.10.0) also includes a color picker.*
+<br>
 This repository will remain archived but the final build will still be downloadable. Thanks for your support!
 
 .svp files belong to Dreamtronics (https://dreamtonics.com/)
